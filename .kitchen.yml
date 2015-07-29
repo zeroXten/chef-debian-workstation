@@ -1,0 +1,18 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: debian
+    driver:
+      box: "sharlak/debian_stretch_64"
+      gui: true
+
+suites:
+  - name: default
+    run_list: "recipe[chef-debian-workstation::default]"
+    attributes:
+      kitchen_test: true
